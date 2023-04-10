@@ -324,7 +324,7 @@ class RandomStrategy:
         if not a_move_was_made:
             return False
 
-    def random_move(self):
+    def random_move(self, piece):
         """
         With this function the computer places its piece randomly on a valid place
         :param piece: computer's piece
@@ -339,9 +339,9 @@ class RandomStrategy:
             if not done and self._board.check_availability(row, column) and self.validate_place(row, column):
                 x = row
                 y = column
+                self._board.place_piece(row, column, piece)
                 done = True
 
-        return x, y
 
     def winning_move(self, piece):
         """
